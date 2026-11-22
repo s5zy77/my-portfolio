@@ -1,35 +1,226 @@
 <!DOCTYPE html>
-<html>
-	<head> 
-        <script src="https://cdn.tailwindcss.com"></script>
-		<title>Subhasree's Portfolio</title>  
-	</head>
-	<body class="bg-pink-100 p-10">
-		<h1 class="text-3xl text-blue-500">Subhasree's Portfolio</h1>
-		<p class="text-2xl text-pink-500 mt-6">I am Subhasree Majumder, and this is fun.</p>
-        <h2 class="text-xl font-bold mt-4">About Me</h2>
-        <img src="profile.jpg" alt="Profile Picture" width="200">
-        <p class="text-2xl font-normal text-gray-700">I am a passionate web developer with experience in creating dynamic and responsive websites.<br>
-            I enjoy learning new technologies and applying them to my projects.</p>
-        <h2 class="text-xl font-bold mt-4">Projects</h2>
-        <ul class="mt-2 space-y-6">
-            <li class="text-lg">
-                <span class="font-semibold">Project 1: A simple to-do list application</span>
-                <div class="mt-2 grid grid-cols-2 gap-4 max-w-xl">
-                    <img src="todo1.png" alt="To-do app screenshot 1" class="w-full h-auto rounded shadow">
-                    <img src="todo2.png" alt="To-do app screenshot 2" class="w-full h-auto rounded shadow">
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhasree Majumder — Digital Scrapbook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Lora:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lora', Georgia, serif;
+            background-color: #FAF9F6;
+            background-image: radial-gradient(#d6d3cd 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: #18181b;
+        }
+        .font-mono-label {
+            font-family: 'Space Mono', monospace;
+        }
+        .font-hand {
+            font-family: 'Caveat', cursive;
+        }
+        /* Slightly tilted highlighter strokes */
+        .hl-yellow {
+            background: linear-gradient(104deg, rgba(253, 224, 71, 0) 0.9%, rgba(253, 224, 71, 0.85) 2.4%, rgba(253, 224, 71, 0.5) 5.8%, rgba(253, 224, 71, 0.8) 93%, rgba(253, 224, 71, 0.7) 96%, rgba(253, 224, 71, 0) 98%);
+            padding: 0 6px;
+            border-radius: 4px;
+        }
+        .hl-pink {
+            background: linear-gradient(104deg, rgba(249, 168, 212, 0) 0.9%, rgba(249, 168, 212, 0.75) 2.4%, rgba(249, 168, 212, 0.45) 5.8%, rgba(249, 168, 212, 0.75) 93%, rgba(249, 168, 212, 0.6) 96%, rgba(249, 168, 212, 0) 98%);
+            padding: 0 6px;
+            border-radius: 4px;
+        }
+        .hl-mint {
+            background: linear-gradient(104deg, rgba(167, 243, 208, 0) 0.9%, rgba(167, 243, 208, 0.85) 2.4%, rgba(167, 243, 208, 0.5) 5.8%, rgba(167, 243, 208, 0.8) 93%, rgba(167, 243, 208, 0.7) 96%, rgba(167, 243, 208, 0) 98%);
+            padding: 0 6px;
+            border-radius: 4px;
+        }
+        .ink-underline {
+            text-decoration: none;
+            border-bottom: 2.5px solid #18181b;
+            padding-bottom: 1px;
+        }
+        /* Masking tape strip */
+        .tape {
+            background-color: rgba(245, 240, 225, 0.85);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            border-left: 1px dashed rgba(0,0,0,0.1);
+            border-right: 1px dashed rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-pink-200">
+
+    
+    <header class="sticky top-0 z-50 bg-[#FAF9F6]/85 backdrop-blur-md border-b border-stone-200/80 px-6 md:px-16 py-4 flex justify-between items-center">
+        <a href="#top" class="font-mono-label text-sm font-bold tracking-tight text-stone-700 hover:text-black">
+            s5zy77 // v2.0
+        </a>
+        <nav class="flex gap-6 md:gap-10 text-sm md:text-base font-mono-label font-bold">
+            <a href="#top" class="hover:bg-yellow-200 px-1.5 py-0.5 transition">01. Index</a>
+            <a href="#lore" class="hover:bg-pink-200 px-1.5 py-0.5 transition">02. The Lore</a>
+            <a href="#builds" class="hover:bg-emerald-200 px-1.5 py-0.5 transition">03. Builds</a>
+        </nav>
+    </header>
+
+    
+    <section id="top" class="max-w-6xl mx-auto px-6 md:px-16 pt-14 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+        
+        
+        <div class="lg:col-span-7 space-y-6">
+            <div class="inline-block font-mono-label text-xs uppercase tracking-widest bg-stone-900 text-stone-100 px-3 py-1 rounded-full">
+                Kolkata, IN • Portfolio & Lab
+            </div>
+            
+            <h1 class="text-3xl sm:text-4xl md:text-[42px] leading-[1.35] font-normal text-stone-900">
+                Hey, I’m <span class="hl-yellow font-medium">Subhasree</span>. Welcome to my <span class="hl-pink">corner of the internet</span>—an archive of half-caffeinated <span class="ink-underline">hackathon builds</span>, browser games, and <span class="hl-mint">web experiments</span>.
+            </h1>
+
+            <div class="pt-2 flex flex-wrap gap-4 font-mono-label text-xs">
+                <a href="#builds" class="bg-stone-900 text-white px-5 py-2.5 rounded hover:bg-stone-700 transition">
+                    Browse Projects ↓
+                </a>
+                <a href="https://github.com/s5zy77" target="_blank" class="border border-stone-900 px-5 py-2.5 rounded hover:bg-stone-200/60 transition">
+                    GitHub (@s5zy77) ↗
+                </a>
+            </div>
+        </div>
+
+        
+        <div class="lg:col-span-5 relative flex justify-center items-center py-6">
+            
+            
+            <div class="w-72 bg-[#fffdf7] border border-stone-400 rounded-md p-4 shadow-md transform -rotate-6 translate-x-10 translate-y-6 font-mono-label text-[10px] text-stone-700">
+                <div class="border-b-2 border-stone-800 pb-1 mb-2 flex justify-between font-bold text-stone-900">
+                    <span>DEV LOG // ARCHIVE</span>
+                    <span>CCU-2026</span>
                 </div>
-            </li>
-            <li class="text-lg">
-                <span class="font-semibold">Project 2: Don't Look Back (2D Horror Browser Game)</span>
-                <p class="text-sm text-gray-700 mt-1 max-w-xl">
+                <div class="grid grid-cols-2 border-b border-stone-300 py-1 font-bold">
+                    <span>DATE</span>
+                    <span>STATUS</span>
+                </div>
+                <div class="grid grid-cols-2 border-b border-stone-300 py-1 text-pink-700">
+                    <span>SEM 03</span>
+                    <span>SHIPPING CODE</span>
+                </div>
+                <div class="grid grid-cols-2 border-b border-stone-300 py-1">
+                    <span>STACK</span>
+                    <span>PY / JS / TAILWIND</span>
+                </div>
+                <div class="grid grid-cols-2 py-1">
+                    <span>TRACK</span>
+                    <span>AI & DATA SCI</span>
+                </div>
+                <div class="mt-3 pt-2 border-t border-dashed border-stone-400 text-[9px] text-stone-500 flex justify-between">
+                    <span>* KEEP BUILDING *</span>
+                    <span>NO. 044</span>
+                </div>
+            </div>
+
+            
+            <div class="absolute w-60 bg-white p-3 pb-6 border border-stone-300 shadow-xl transform rotate-3 hover:rotate-0 transition duration-300 -translate-x-8">
+                
+                <div class="tape w-24 h-6 mx-auto -mt-6 mb-2 transform -rotate-2"></div>
+                
+                <div class="bg-stone-100 overflow-hidden border border-stone-200">
+                    <img src="profile.jpg" alt="Subhasree Majumder" class="w-full h-56 object-cover">
+                </div>
+                
+                <div class="mt-3 flex justify-between items-end px-1">
+                    <span class="font-hand text-2xl text-stone-800 leading-none">subhasree :)</span>
+                    <span class="font-mono-label text-[9px] text-stone-400">22.11.26</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+   
+    <section id="lore" class="max-w-4xl mx-auto px-6 md:px-16 py-20 border-t border-stone-300/70">
+        <div class="flex items-center gap-3 mb-6">
+            <span class="font-mono-label text-xs bg-pink-200 px-2 py-0.5 font-bold">02 // ABOUT</span>
+            <h2 class="text-2xl font-mono-label font-bold">The Lore</h2>
+        </div>
+
+        <p class="text-2xl md:text-[32px] leading-[1.5] text-stone-900">
+            I’m a Computer Science (<span class="ink-underline">AI & Data Science</span>) undergrad in Kolkata who enjoys turning weird ideas into functional software. Whether I’m wiring <span class="bg-stone-200 px-1.5">ESP32 robotics</span>, coding <span class="hl-pink">2D browser horror games</span>, or shipping <span class="hl-yellow">full-stack web apps</span> on tight deadlines, I learn best by building things from scratch.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-2.5 font-mono-label text-xs">
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">Python & ML</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">HTML / Tailwind / JS</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">2D Game Dev</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">Hackathons</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">UI/UX & Zines</span>
+        </div>
+    </section>
+    <section id="builds" class="max-w-5xl mx-auto px-6 md:px-16 py-20 border-t border-stone-300/70">
+        <div class="flex items-center gap-3 mb-12">
+            <span class="font-mono-label text-xs bg-emerald-200 px-2 py-0.5 font-bold">03 // ARCHIVE</span>
+            <h2 class="text-2xl font-mono-label font-bold">Selected Builds</h2>
+        </div>
+
+        <div class="space-y-14">
+            <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
+                <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+                    <h3 class="text-2xl font-bold">
+                        <span class="font-mono-label text-sm text-stone-500 mr-2">[01]</span>
+                        <span class="hl-yellow">To-Do List Application</span>
+                    </h3>
+                    <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">Web App</span>
+                </div>
+                <p class="text-base md:text-lg text-stone-700 max-w-2xl mb-5">
+                    A minimal, distraction-free task tracker built to organize daily study sprints, deadlines, and project checklists.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+                    <img src="todo1.png" alt="To-do app screenshot 1" class="w-full h-auto rounded border border-stone-300">
+                    <img src="todo2.png" alt="To-do app screenshot 2" class="w-full h-auto rounded border border-stone-300">
+                </div>
+            </article>
+
+            
+            <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
+                <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+                    <h3 class="text-2xl font-bold">
+                        <span class="font-mono-label text-sm text-stone-500 mr-2">[02]</span>
+                        <span class="hl-pink">Don't Look Back</span> (2D Horror Game)
+                    </h3>
+                    <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">HTML5 / JS Game</span>
+                </div>
+                <p class="text-base md:text-lg text-stone-700 max-w-2xl mb-5">
                     A browser-based 2D survival horror adventure built with HTML5 and JavaScript. Navigate through dark environments with flashlight mechanics, evade a relentless stalker without looking back, and collect hidden shadow fireflies to unlock secret rewards.
                 </p>
-                <div class="mt-2 grid grid-cols-2 gap-4 max-w-xl">
-                    <img src="horror-game1.png" alt="Horror game screenshot 1" class="w-full h-auto rounded shadow">
-                    <img src="horror-game2.png" alt="Horror game screenshot 2" class="w-full h-auto rounded shadow">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+                    <img src="horror-game1.png" alt="Horror game screenshot 1" class="w-full h-auto rounded border border-stone-300">
+                    <img src="horror-game2.png" alt="Horror game screenshot 2" class="w-full h-auto rounded border border-stone-300">
                 </div>
-            </li>
-        </ul>
-	</body>
+            </article>
+            <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
+                <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+                    <h3 class="text-2xl font-bold">
+                        <span class="font-mono-label text-sm text-stone-500 mr-2">[03]</span>
+                        <span class="hl-mint">Personal Blog Website</span>
+                    </h3>
+                    <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">Editorial / Web</span>
+                </div>
+                <p class="text-base md:text-lg text-stone-700 max-w-2xl mb-5">
+                    A responsive writing space for publishing dev logs, hackathon retrospectives, and notes on design and technology.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+                    <img src="blog1.png" alt="Blog website screenshot 1" class="w-full h-auto rounded border border-stone-300">
+                    <img src="blog2.png" alt="Blog website screenshot 2" class="w-full h-auto rounded border border-stone-300">
+                </div>
+            </article>
+
+        </div>
+    </section>
+    <footer class="max-w-5xl mx-auto px-6 md:px-16 py-10 border-t border-stone-300/70 flex flex-col sm:flex-row justify-between items-center gap-4 font-mono-label text-xs text-stone-500">
+        <span>© 2026 Subhasree Majumder</span>
+        <span>Hand-coded with HTML & Tailwind CSS</span>
+    </footer>
+
+</body>
 </html>
