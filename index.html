@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html>
 	<head> 
-        <script src="https://cdn.tailwindcss.com">
-        </script>
-		<title >Subhasree's Portfolio</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+		<title>Subhasree's Portfolio</title>  
 	</head>
-	<body>
-		<h1>Subhasree's Portfolio</h1>
-		<p>I am Subhasree Majumder, and this is fun.</p>
-        <h2>About Me</h2>
+	<body class="bg-pink-100 p-10">
+		<h1 class="text-3xl text-blue-500">Subhasree's Portfolio</h1>
+		<p class="text-2xl text-pink-500 mt-6">I am Subhasree Majumder, and this is fun.</p>
+        <h2 class="text-xl font-bold mt-4">About Me</h2>
         <img src="profile.jpg" alt="Profile Picture" width="200">
-        <p>I am a passionate web developer with experience in creating dynamic and responsive websites. I enjoy learning new technologies and applying them to my projects.</p>
-        <h2>Projects</h2>
-        <ul>
-            <li>Project 1: A simple to-do list application</li>
-            <li>Project 2: A horror game</li>
-            <li>Project 3: A personal blog website</li>
+        <p class="text-2xl font-normal text-gray-700">I am a passionate web developer with experience in creating dynamic and responsive websites.<br>
+            I enjoy learning new technologies and applying them to my projects.</p>
+        <h2 class="text-xl font-bold mt-4">Projects</h2>
+        <ul class="mt-2 space-y-6">
+            <li class="text-lg">
+                <span class="font-semibold">Project 1: A simple to-do list application</span>
+                <div class="mt-2 grid grid-cols-2 gap-4 max-w-xl">
+                    <img src="todo1.png" alt="To-do app screenshot 1" class="w-full h-auto rounded shadow">
+                    <img src="todo2.png" alt="To-do app screenshot 2" class="w-full h-auto rounded shadow">
+                </div>
+            </li>
+            <li class="text-lg">
+                <span class="font-semibold">Project 2: Don't Look Back (2D Horror Browser Game)</span>
+                <p class="text-sm text-gray-700 mt-1 max-w-xl">
+                    A browser-based 2D survival horror adventure built with HTML5 and JavaScript. Navigate through dark environments with flashlight mechanics, evade a relentless stalker without looking back, and collect hidden shadow fireflies to unlock secret rewards.
+                </p>
+                <div class="mt-2 grid grid-cols-2 gap-4 max-w-xl">
+                    <img src="horror-game1.png" alt="Horror game screenshot 1" class="w-full h-auto rounded shadow">
+                    <img src="horror-game2.png" alt="Horror game screenshot 2" class="w-full h-auto rounded shadow">
+                </div>
+            </li>
         </ul>
 	</body>
 </html>
