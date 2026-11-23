@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subhasree Majumder — Digital Scrapbook</title>
+    <title>Subhasree Majumder — Digital Scrapbook & Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Lora:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Lora', Georgia, serif;
@@ -22,7 +23,6 @@
         .font-hand {
             font-family: 'Caveat', cursive;
         }
-        /* Slightly tilted highlighter strokes */
         .hl-yellow {
             background: linear-gradient(104deg, rgba(253, 224, 71, 0) 0.9%, rgba(253, 224, 71, 0.85) 2.4%, rgba(253, 224, 71, 0.5) 5.8%, rgba(253, 224, 71, 0.8) 93%, rgba(253, 224, 71, 0.7) 96%, rgba(253, 224, 71, 0) 98%);
             padding: 0 6px;
@@ -38,136 +38,290 @@
             padding: 0 6px;
             border-radius: 4px;
         }
+        .hl-blue {
+            background: linear-gradient(104deg, rgba(186, 230, 253, 0) 0.9%, rgba(186, 230, 253, 0.85) 2.4%, rgba(186, 230, 253, 0.5) 5.8%, rgba(186, 230, 253, 0.8) 93%, rgba(186, 230, 253, 0.7) 96%, rgba(186, 230, 253, 0) 98%);
+            padding: 0 6px;
+            border-radius: 4px;
+        }
         .ink-underline {
             text-decoration: none;
             border-bottom: 2.5px solid #18181b;
             padding-bottom: 1px;
         }
-        /* Masking tape strip */
         .tape {
-            background-color: rgba(245, 240, 225, 0.85);
+            background-color: rgba(245, 240, 225, 0.88);
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-            border-left: 1px dashed rgba(0,0,0,0.1);
-            border-right: 1px dashed rgba(0,0,0,0.1);
+            border-left: 1px dashed rgba(0,0,0,0.12);
+            border-right: 1px dashed rgba(0,0,0,0.12);
         }
     </style>
 </head>
 <body class="overflow-x-hidden selection:bg-pink-200">
 
-    
-    <header class="sticky top-0 z-50 bg-[#FAF9F6]/85 backdrop-blur-md border-b border-stone-200/80 px-6 md:px-16 py-4 flex justify-between items-center">
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[#FAF9F6]/90 backdrop-blur-md border-b border-stone-200/80 px-6 md:px-16 py-4 flex justify-between items-center">
         <a href="#top" class="font-mono-label text-sm font-bold tracking-tight text-stone-700 hover:text-black">
-            s5zy77 // v2.0
+            s5zy77 // v3.1
         </a>
-        <nav class="flex gap-6 md:gap-10 text-sm md:text-base font-mono-label font-bold">
-            <a href="#top" class="hover:bg-yellow-200 px-1.5 py-0.5 transition">01. Index</a>
-            <a href="#lore" class="hover:bg-pink-200 px-1.5 py-0.5 transition">02. The Lore</a>
+        <nav class="flex flex-wrap gap-3 md:gap-6 text-xs md:text-sm font-mono-label font-bold">
+            <a href="#lore" class="hover:bg-pink-200 px-1.5 py-0.5 transition">01. Lore</a>
+            <a href="#datalab" class="hover:bg-sky-200 px-1.5 py-0.5 transition">02. Data Lab</a>
             <a href="#builds" class="hover:bg-emerald-200 px-1.5 py-0.5 transition">03. Builds</a>
+            <a href="#certificates" class="hover:bg-amber-200 px-1.5 py-0.5 transition">04. Wins & Certs</a>
+            <a href="#hobbies" class="hover:bg-purple-200 px-1.5 py-0.5 transition">05. Side Quests</a>
         </nav>
     </header>
 
-    
+    <!-- Hero Section -->
     <section id="top" class="max-w-6xl mx-auto px-6 md:px-16 pt-14 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
         
-        
+        <!-- Left: Editorial Copy -->
         <div class="lg:col-span-7 space-y-6">
             <div class="inline-block font-mono-label text-xs uppercase tracking-widest bg-stone-900 text-stone-100 px-3 py-1 rounded-full">
-                Kolkata, IN • Portfolio & Lab
+                Kolkata, IN • Portfolio & Data Lab
             </div>
             
             <h1 class="text-3xl sm:text-4xl md:text-[42px] leading-[1.35] font-normal text-stone-900">
-                Hey, I’m <span class="hl-yellow font-medium">Subhasree</span>. Welcome to my <span class="hl-pink">corner of the internet</span>—an archive of half-caffeinated <span class="ink-underline">hackathon builds</span>, browser games, and <span class="hl-mint">web experiments</span>.
+                Hey, I’m <span class="hl-yellow font-medium">Subhasree</span>. Welcome to my <span class="hl-pink">corner of the internet</span>—an archive of <span class="ink-underline">Python & data analytics</span>, hackathon wins, indie games, and <span class="hl-mint">hardware experiments</span>.
             </h1>
 
             <div class="pt-2 flex flex-wrap gap-4 font-mono-label text-xs">
                 <a href="#builds" class="bg-stone-900 text-white px-5 py-2.5 rounded hover:bg-stone-700 transition">
-                    Browse Projects ↓
+                    Explore Builds ↓
                 </a>
-                <a href="https://github.com/s5zy77" target="_blank" class="border border-stone-900 px-5 py-2.5 rounded hover:bg-stone-200/60 transition">
+                <a href="#certificates" class="border border-stone-900 px-5 py-2.5 rounded hover:bg-stone-200/60 transition">
+                    Wins & Certificates ↓
+                </a>
+                <a href="https://github.com/s5zy77" target="_blank" class="border border-stone-400 px-5 py-2.5 rounded hover:bg-stone-200/60 transition">
                     GitHub (@s5zy77) ↗
                 </a>
             </div>
         </div>
 
-        
+        <!-- Right: Polaroid + Retro Library Checkout Card Collage -->
         <div class="lg:col-span-5 relative flex justify-center items-center py-6">
             
-            
+            <!-- Back Card: Dev Checkout Slip -->
             <div class="w-72 bg-[#fffdf7] border border-stone-400 rounded-md p-4 shadow-md transform -rotate-6 translate-x-10 translate-y-6 font-mono-label text-[10px] text-stone-700">
                 <div class="border-b-2 border-stone-800 pb-1 mb-2 flex justify-between font-bold text-stone-900">
                     <span>DEV LOG // ARCHIVE</span>
                     <span>CCU-2026</span>
                 </div>
                 <div class="grid grid-cols-2 border-b border-stone-300 py-1 font-bold">
-                    <span>DATE</span>
-                    <span>STATUS</span>
+                    <span>FIELD</span>
+                    <span>FOCUS</span>
                 </div>
                 <div class="grid grid-cols-2 border-b border-stone-300 py-1 text-pink-700">
-                    <span>SEM 03</span>
-                    <span>SHIPPING CODE</span>
+                    <span>DATA</span>
+                    <span>PANDAS / MPL</span>
                 </div>
                 <div class="grid grid-cols-2 border-b border-stone-300 py-1">
-                    <span>STACK</span>
-                    <span>PY / JS / TAILWIND</span>
+                    <span>CODE</span>
+                    <span>PY / JS / GDSCRIPT</span>
                 </div>
                 <div class="grid grid-cols-2 py-1">
-                    <span>TRACK</span>
-                    <span>AI & DATA SCI</span>
+                    <span>MAJOR</span>
+                    <span>CSE (AI & DS)</span>
                 </div>
                 <div class="mt-3 pt-2 border-t border-dashed border-stone-400 text-[9px] text-stone-500 flex justify-between">
-                    <span>* KEEP BUILDING *</span>
+                    <span>* KEEP SHIPPING *</span>
                     <span>NO. 044</span>
                 </div>
             </div>
 
-            
+            <!-- Front Card: Taped Polaroid -->
             <div class="absolute w-60 bg-white p-3 pb-6 border border-stone-300 shadow-xl transform rotate-3 hover:rotate-0 transition duration-300 -translate-x-8">
-                
                 <div class="tape w-24 h-6 mx-auto -mt-6 mb-2 transform -rotate-2"></div>
-                
                 <div class="bg-stone-100 overflow-hidden border border-stone-200">
                     <img src="profile.jpg" alt="Subhasree Majumder" class="w-full h-56 object-cover">
                 </div>
-                
                 <div class="mt-3 flex justify-between items-end px-1">
                     <span class="font-hand text-2xl text-stone-800 leading-none">subhasree :)</span>
-                    <span class="font-mono-label text-[9px] text-stone-400">22.11.26</span>
+                    <span class="font-mono-label text-[9px] text-stone-400">2026</span>
                 </div>
             </div>
 
         </div>
     </section>
 
-   
-    <section id="lore" class="max-w-4xl mx-auto px-6 md:px-16 py-20 border-t border-stone-300/70">
+    <!-- Section 01: The Lore (About) -->
+    <section id="lore" class="max-w-5xl mx-auto px-6 md:px-16 py-20 border-t border-stone-300/70">
         <div class="flex items-center gap-3 mb-6">
-            <span class="font-mono-label text-xs bg-pink-200 px-2 py-0.5 font-bold">02 // ABOUT</span>
+            <span class="font-mono-label text-xs bg-pink-200 px-2 py-0.5 font-bold">01 // ABOUT</span>
             <h2 class="text-2xl font-mono-label font-bold">The Lore</h2>
         </div>
 
         <p class="text-2xl md:text-[32px] leading-[1.5] text-stone-900">
-            I’m a Computer Science (<span class="ink-underline">AI & Data Science</span>) undergrad in Kolkata who enjoys turning weird ideas into functional software. Whether I’m wiring <span class="bg-stone-200 px-1.5">ESP32 robotics</span>, coding <span class="hl-pink">2D browser horror games</span>, or shipping <span class="hl-yellow">full-stack web apps</span> on tight deadlines, I learn best by building things from scratch.
+            I’m a Computer Science (<span class="ink-underline">AI & Data Science</span>) undergrad at Amity University Kolkata who turns raw datasets and weird ideas into working builds. From <span class="hl-blue">exploratory data analysis</span> in Python and <span class="bg-stone-200 px-1.5">ESP32 robotics</span> to <span class="hl-pink">2D horror games</span> and <span class="hl-yellow">podium-winning hackathons</span>, I learn best by shipping from scratch.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-2.5 font-mono-label text-xs">
-            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">Python & ML</span>
-            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">HTML / Tailwind / JS</span>
-            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">2D Game Dev</span>
-            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">Hackathons</span>
-            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full shadow-2xs">UI/UX & Zines</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full">Python & DSA</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full">Pandas & NumPy</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full">Matplotlib & Seaborn</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full">Scikit-Learn</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full">HTML / Tailwind / JS</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full">Godot & GDScript</span>
+            <span class="bg-white border border-stone-400 px-3 py-1 rounded-full">ESP32 & Arduino</span>
         </div>
     </section>
+
+    <!-- Section 02: Data Analytics, Pandas & Matplotlib Showcase -->
+    <section id="datalab" class="max-w-5xl mx-auto px-6 md:px-16 py-20 border-t border-stone-300/70">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-10">
+            <div class="flex items-center gap-3">
+                <span class="font-mono-label text-xs bg-sky-200 px-2 py-0.5 font-bold">02 // DATA ANALYTICS</span>
+                <h2 class="text-2xl font-mono-label font-bold">Pandas & Matplotlib Lab</h2>
+            </div>
+            <span class="font-mono-label text-xs text-stone-500">Jupyter Notebook • EDA & Visualization</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left: Jupyter / Pandas Code Cell Preview -->
+            <div class="lg:col-span-6 bg-stone-900 text-stone-100 border-2 border-stone-900 rounded-lg p-5 shadow-[6px_6px_0px_#bae6fd] flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between border-b border-stone-700 pb-2.5 mb-4 font-mono-label text-xs text-stone-400">
+                        <span>In [14]: eda_pipeline.ipynb</span>
+                        <span class="text-emerald-300">● Python 3</span>
+                    </div>
+                    <pre class="font-mono-label text-xs leading-relaxed overflow-x-auto text-stone-200"><code><span class="text-pink-400">import</span> pandas <span class="text-pink-400">as</span> pd
+<span class="text-pink-400">import</span> matplotlib.pyplot <span class="text-pink-400">as</span> plt
+
+<span class="text-stone-400"># Clean, aggregate & pivot metrics</span>
+df = (
+    pd.read_csv(<span class="text-amber-300">"build_telemetry.csv"</span>)
+    .dropna(subset=[<span class="text-amber-300">"domain"</span>, <span class="text-amber-300">"hours"</span>])
+    .groupby(<span class="text-amber-300">"domain"</span>, as_index=<span class="text-sky-300">False</span>)[<span class="text-amber-300">"hours"</span>]
+    .sum()
+    .sort_values(<span class="text-amber-300">"hours"</span>, ascending=<span class="text-sky-300">False</span>)
+)
+
+plt.style.use(<span class="text-amber-300">"seaborn-v0_8-whitegrid"</span>)
+plt.bar(df[<span class="text-amber-300">"domain"</span>], df[<span class="text-amber-300">"hours"</span>])</code></pre>
+                </div>
+
+                <!-- Pandas Toolkit Pills -->
+                <div class="mt-6 pt-4 border-t border-stone-700">
+                    <p class="font-mono-label text-[10px] uppercase tracking-wider text-stone-400 mb-2">Core Analytics Stack</p>
+                    <div class="flex flex-wrap gap-1.5 font-mono-label text-[11px]">
+                        <span class="bg-stone-800 border border-stone-700 px-2 py-0.5 rounded text-sky-300">pd.groupby()</span>
+                        <span class="bg-stone-800 border border-stone-700 px-2 py-0.5 rounded text-sky-300">merge / pivot</span>
+                        <span class="bg-stone-800 border border-stone-700 px-2 py-0.5 rounded text-pink-300">plt.subplots()</span>
+                        <span class="bg-stone-800 border border-stone-700 px-2 py-0.5 rounded text-amber-300">seaborn heatmaps</span>
+                        <span class="bg-stone-800 border border-stone-700 px-2 py-0.5 rounded text-emerald-300">NumPy vectorization</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Interactive Matplotlib-Styled Figure -->
+            <div class="lg:col-span-6 bg-white border-2 border-stone-900 rounded-lg p-5 shadow-[6px_6px_0px_#18181b] flex flex-col justify-between">
+                <div>
+                    <div class="flex flex-wrap justify-between items-center gap-2 border-b border-stone-200 pb-3 mb-4">
+                        <span class="font-mono-label text-xs font-bold">Figure 1: Technical Focus Breakdown</span>
+                        <div class="flex gap-1.5 font-mono-label text-[11px]">
+                            <button onclick="updateChart('bar')" id="btn-bar" class="bg-stone-900 text-white px-2.5 py-1 rounded cursor-pointer">Bar Plot</button>
+                            <button onclick="updateChart('line')" id="btn-line" class="bg-stone-100 border border-stone-300 px-2.5 py-1 rounded hover:bg-stone-200 cursor-pointer">Trend Line</button>
+                        </div>
+                    </div>
+                    <div class="relative h-56 w-full">
+                        <canvas id="mplChart"></canvas>
+                    </div>
+                </div>
+                <p class="font-mono-label text-[11px] text-stone-500 mt-3 pt-2 border-t border-stone-200">
+                    Interactive Matplotlib-styled output • Toggle view to inspect distribution vs. semester progression.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 03: Selected Builds (Projects) -->
     <section id="builds" class="max-w-5xl mx-auto px-6 md:px-16 py-20 border-t border-stone-300/70">
         <div class="flex items-center gap-3 mb-12">
             <span class="font-mono-label text-xs bg-emerald-200 px-2 py-0.5 font-bold">03 // ARCHIVE</span>
-            <h2 class="text-2xl font-mono-label font-bold">Selected Builds</h2>
+            <h2 class="text-2xl font-mono-label font-bold">Selected Builds & Hardware</h2>
         </div>
 
         <div class="space-y-14">
+
+            <!-- Build 1: Horror Game -->
             <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
                 <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
                     <h3 class="text-2xl font-bold">
                         <span class="font-mono-label text-sm text-stone-500 mr-2">[01]</span>
+                        <span class="hl-pink">Don't Look Back</span> (2D Horror Browser Game)
+                    </h3>
+                    <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">HTML5 / JS Game</span>
+                </div>
+                <p class="text-base md:text-lg text-stone-700 max-w-2xl mb-5">
+                    A browser-based 2D survival horror adventure built with HTML5 and JavaScript. Navigate dark environments with flashlight mechanics, evade a relentless stalker without looking back, and collect hidden shadow fireflies to unlock secret rewards.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+                    <img src="horror-game1.png" alt="Horror game screenshot 1" class="w-full h-auto rounded border border-stone-300">
+                    <img src="horror-game2.png" alt="Horror game screenshot 2" class="w-full h-auto rounded border border-stone-300">
+                </div>
+            </article>
+
+            <!-- Build 2: Learning Godot Engine (.png) -->
+            <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
+                <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+                    <h3 class="text-2xl font-bold">
+                        <span class="font-mono-label text-sm text-stone-500 mr-2">[02]</span>
+                        <span class="hl-blue">Learning Godot Engine</span> (2D Pixel Platformer)
+                    </h3>
+                    <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">Godot 4.7 / GDScript</span>
+                </div>
+                <p class="text-base md:text-lg text-stone-700 max-w-2xl mb-5">
+                    Building 2D pixel-art platformer mechanics from scratch in Godot 4.7—configuring TileMap collision layers, rope bridges, enemy patrols, coin collectibles, and live score labels.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+                    <img src="godot1.png" alt="Godot Engine editor view" class="w-full h-auto rounded border border-stone-300">
+                    <img src="godot2.png" alt="Godot Engine live gameplay" class="w-full h-auto rounded border border-stone-300">
+                </div>
+            </article>
+
+            <!-- Build 3: ESP32 Hardware & Robotics (.jpg) -->
+            <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
+                <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+                    <h3 class="text-2xl font-bold">
+                        <span class="font-mono-label text-sm text-stone-500 mr-2">[03]</span>
+                        <span class="hl-yellow">ESP32 OLED Desk Pet & Robotics Chassis</span>
+                    </h3>
+                    <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">Embedded / C++</span>
+                </div>
+                <p class="text-base md:text-lg text-stone-700 max-w-2xl mb-5">
+                    Hardware tinkering with an ESP32 microcontroller—rendering custom pixel-art animations on an I2C OLED screen with tactile switches alongside wiring a 2WD robotics chassis with DC gear motors and Wi-Fi telemetry.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+                    <img src="esp32_1.jpeg" alt="ESP32 OLED pixel cat display" class="w-full h-auto rounded border border-stone-300">
+                    <img src="esp32_2.jpeg" alt="ESP32 robotics workbench" class="w-full h-auto rounded border border-stone-300">
+                </div>
+            </article>
+
+            <!-- Build 4: Personal Blog Website (.png) -->
+            <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
+                <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+                    <h3 class="text-2xl font-bold">
+                        <span class="font-mono-label text-sm text-stone-500 mr-2">[04]</span>
+                        <span class="hl-mint">Field Notes — Personal Blog Website</span>
+                    </h3>
+                    <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">Editorial / Web</span>
+                </div>
+                <p class="text-base md:text-lg text-stone-700 max-w-2xl mb-5">
+                    A responsive editorial writing space with category filters, an interactive essay reader modal, and a localStorage post composer for publishing dev logs and hackathon retrospectives.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+                    <img src="blog1.png" alt="Blog website screenshot 1" class="w-full h-auto rounded border border-stone-300">
+                    <img src="blog2.png" alt="Blog website screenshot 2" class="w-full h-auto rounded border border-stone-300">
+                </div>
+            </article>
+
+            <!-- Build 5: To-Do List Application (.png) -->
+            <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
+                <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+                    <h3 class="text-2xl font-bold">
+                        <span class="font-mono-label text-sm text-stone-500 mr-2">[05]</span>
                         <span class="hl-yellow">To-Do List Application</span>
                     </h3>
                     <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">Web App</span>
@@ -181,46 +335,355 @@
                 </div>
             </article>
 
+        </div>
+    </section>
+
+    <!-- Section 04: Podium Wins & Certificates -->
+    <section id="certificates" class="max-w-5xl mx-auto px-6 md:px-16 py-20 border-t border-stone-300/70">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-10">
+            <div class="flex items-center gap-3">
+                <span class="font-mono-label text-xs bg-amber-200 px-2 py-0.5 font-bold">04 // CREDENTIALS</span>
+                <h2 class="text-2xl font-mono-label font-bold">Podium Wins & Certificates</h2>
+            </div>
+            <span class="font-mono-label text-xs text-stone-500">Click any card to view certificate</span>
+        </div>
+
+        <!-- Podium Winners Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             
-            <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
-                <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-                    <h3 class="text-2xl font-bold">
-                        <span class="font-mono-label text-sm text-stone-500 mr-2">[02]</span>
-                        <span class="hl-pink">Don't Look Back</span> (2D Horror Game)
-                    </h3>
-                    <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">HTML5 / JS Game</span>
+            <!-- Win 1: AMIPHORIA 2026 -->
+            <div class="bg-[#fffdf7] border-2 border-stone-900 rounded-lg p-6 shadow-[6px_6px_0px_#fde047] flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center font-mono-label text-xs mb-3">
+                        <span class="bg-amber-300 text-stone-900 px-2.5 py-0.5 font-bold rounded">1ST PLACE WINNER</span>
+                        <span class="text-stone-500">MAR 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Operation Vault — AMIPHORIA 2026</h3>
+                    <p class="text-sm text-stone-700 mb-4">
+                        Secured 1st Position in Operation Vault at Amity University Kolkata's annual fest (Certificate of Merit).
+                    </p>
                 </div>
-                <p class="text-base md:text-lg text-stone-700 max-w-2xl mb-5">
-                    A browser-based 2D survival horror adventure built with HTML5 and JavaScript. Navigate through dark environments with flashlight mechanics, evade a relentless stalker without looking back, and collect hidden shadow fireflies to unlock secret rewards.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
-                    <img src="horror-game1.png" alt="Horror game screenshot 1" class="w-full h-auto rounded border border-stone-300">
-                    <img src="horror-game2.png" alt="Horror game screenshot 2" class="w-full h-auto rounded border border-stone-300">
+                <div class="flex items-center justify-between pt-3 border-t border-stone-200 font-mono-label text-xs">
+                    <span class="text-stone-500">Amity University Kolkata</span>
+                    <a href="win-amiphoria.jpeg" target="_blank" class="font-bold underline hover:text-pink-700">View Photo ↗</a>
                 </div>
-            </article>
-            <article class="bg-white border-2 border-stone-900 rounded-lg p-6 md:p-8 shadow-[6px_6px_0px_#18181b]">
-                <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-                    <h3 class="text-2xl font-bold">
-                        <span class="font-mono-label text-sm text-stone-500 mr-2">[03]</span>
-                        <span class="hl-mint">Personal Blog Website</span>
-                    </h3>
-                    <span class="font-mono-label text-xs bg-stone-100 border border-stone-300 px-2.5 py-1 rounded">Editorial / Web</span>
+            </div>
+
+            <!-- Win 2: PRABUDDHA 2026 -->
+            <div class="bg-[#fffdf7] border-2 border-stone-900 rounded-lg p-6 shadow-[6px_6px_0px_#f9a8d4] flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center font-mono-label text-xs mb-3">
+                        <span class="bg-pink-200 text-stone-900 px-2.5 py-0.5 font-bold rounded">3RD PLACE WINNER</span>
+                        <span class="text-stone-500">APR 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Tech-a-thon — PRABUDDHA 2026</h3>
+                    <p class="text-sm text-stone-700 mb-4">
+                        Secured 3rd Position in the Tech-a-thon hackathon organized by Techno International New Town (TINT).
+                    </p>
                 </div>
-                <p class="text-base md:text-lg text-stone-700 max-w-2xl mb-5">
-                    A responsive writing space for publishing dev logs, hackathon retrospectives, and notes on design and technology.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
-                    <img src="blog1.png" alt="Blog website screenshot 1" class="w-full h-auto rounded border border-stone-300">
-                    <img src="blog2.png" alt="Blog website screenshot 2" class="w-full h-auto rounded border border-stone-300">
+                <div class="flex items-center justify-between pt-3 border-t border-stone-200 font-mono-label text-xs">
+                    <span class="text-stone-500">Techno International New Town</span>
+                    <a href="win-prabuddha.jpeg" target="_blank" class="font-bold underline hover:text-pink-700">View Photo ↗</a>
                 </div>
-            </article>
+            </div>
+
+        </div>
+
+        <!-- Technical & Hackathon Certificates Grid (certificates/*.pdf) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            
+            <a href="certificates/ibm-python.pdf" target="_blank" class="bg-white border border-stone-900 rounded-lg p-4 hover:bg-sky-50 transition flex flex-col justify-between">
+                <div>
+                    <span class="font-mono-label text-[10px] bg-sky-200 px-2 py-0.5 font-bold">CERTIFICATION</span>
+                    <h4 class="font-bold text-base mt-2">Programming with Python (CEPYT1IN)</h4>
+                    <p class="text-xs text-stone-600 mt-1">IBM Developer Skills Network • Mar 2026</p>
+                </div>
+                <span class="font-mono-label text-[11px] font-bold underline mt-4">Open PDF ↗</span>
+            </a>
+
+            <a href="certificates/far-away-2026.pdf" target="_blank" class="bg-white border border-stone-900 rounded-lg p-4 hover:bg-emerald-50 transition flex flex-col justify-between">
+                <div>
+                    <span class="font-mono-label text-[10px] bg-emerald-200 px-2 py-0.5 font-bold">ROUND 2 CONTESTANT</span>
+                    <h4 class="font-bold text-base mt-2">FAR AWAY 2026 International Hackathon</h4>
+                    <p class="text-xs text-stone-600 mt-1">Team Resource • Aug 2026</p>
+                </div>
+                <span class="font-mono-label text-[11px] font-bold underline mt-4">Open PDF ↗</span>
+            </a>
+
+            <a href="certificates/aveva-aiml2.pdf" target="_blank" class="bg-white border border-stone-900 rounded-lg p-4 hover:bg-pink-50 transition flex flex-col justify-between">
+                <div>
+                    <span class="font-mono-label text-[10px] bg-pink-200 px-2 py-0.5 font-bold">AI/ML HACKATHON</span>
+                    <h4 class="font-bold text-base mt-2">National AI/ML Hackathon by AVEVA</h4>
+                    <p class="text-xs text-stone-600 mt-1">IIT Hyderabad • Team Resource</p>
+                </div>
+                <span class="font-mono-label text-[11px] font-bold underline mt-4">Open PDF ↗</span>
+            </a>
+
+            <a href="certificates/hackindiaspark_nitd.pdf" target="_blank" class="bg-white border border-stone-900 rounded-lg p-4 hover:bg-amber-50 transition flex flex-col justify-between">
+                <div>
+                    <span class="font-mono-label text-[10px] bg-amber-200 px-2 py-0.5 font-bold">NATIONAL HACKATHON</span>
+                    <h4 class="font-bold text-base mt-2">HackIndia Spark 6 @ NIT Delhi</h4>
+                    <p class="text-xs text-stone-600 mt-1">Bellatrix 2026 • NIT Delhi</p>
+                </div>
+                <span class="font-mono-label text-[11px] font-bold underline mt-4">Open PDF ↗</span>
+            </a>
+
+            <a href="certificates/hack-among-us.pdf" target="_blank" class="bg-white border border-stone-900 rounded-lg p-4 hover:bg-purple-50 transition flex flex-col justify-between">
+                <div>
+                    <span class="font-mono-label text-[10px] bg-purple-200 px-2 py-0.5 font-bold">HACKATHON</span>
+                    <h4 class="font-bold text-base mt-2">Hack Among Us — Idea Pitch</h4>
+                    <p class="text-xs text-stone-600 mt-1">Heritage Institute of Technology, Kolkata</p>
+                </div>
+                <span class="font-mono-label text-[11px] font-bold underline mt-4">Open PDF ↗</span>
+            </a>
+
+            <a href="certificates/solution-challenge-1.pdf" target="_blank" class="bg-white border border-stone-900 rounded-lg p-4 hover:bg-sky-50 transition flex flex-col justify-between">
+                <div>
+                    <span class="font-mono-label text-[10px] bg-sky-200 px-2 py-0.5 font-bold">CHALLENGE</span>
+                    <h4 class="font-bold text-base mt-2">Google Solution Challenge</h4>
+                    <p class="text-xs text-stone-600 mt-1">Prototype Submission • 2026</p>
+                </div>
+                <span class="font-mono-label text-[11px] font-bold underline mt-4">Open PDF ↗</span>
+            </a>
+
+            <a href="certificates/codefusion26.pdf" target="_blank" class="bg-white border border-stone-900 rounded-lg p-4 hover:bg-emerald-50 transition flex flex-col justify-between">
+                <div>
+                    <span class="font-mono-label text-[10px] bg-emerald-200 px-2 py-0.5 font-bold">CODING EVENT</span>
+                    <h4 class="font-bold text-base mt-2">CodeFusion 2026</h4>
+                    <p class="text-xs text-stone-600 mt-1">Participant Certificate • 2026</p>
+                </div>
+                <span class="font-mono-label text-[11px] font-bold underline mt-4">Open PDF ↗</span>
+            </a>
+
+            <a href="certificates/hack-energy-2.pdf" target="_blank" class="bg-white border border-stone-900 rounded-lg p-4 hover:bg-pink-50 transition flex flex-col justify-between">
+                <div>
+                    <span class="font-mono-label text-[10px] bg-pink-200 px-2 py-0.5 font-bold">HACKATHON</span>
+                    <h4 class="font-bold text-base mt-2">Hack Energy 2.0</h4>
+                    <p class="text-xs text-stone-600 mt-1">HackGyanVerse Community • Team Resource</p>
+                </div>
+                <span class="font-mono-label text-[11px] font-bold underline mt-4">Open PDF ↗</span>
+            </a>
+
+            <a href="certificates/launchpad30.pdf" target="_blank" class="bg-white border border-stone-900 rounded-lg p-4 hover:bg-amber-50 transition flex flex-col justify-between">
+                <div>
+                    <span class="font-mono-label text-[10px] bg-amber-200 px-2 py-0.5 font-bold">BOOTCAMP / SPRINT</span>
+                    <h4 class="font-bold text-base mt-2">WCC Launchpad 30</h4>
+                    <p class="text-xs text-stone-600 mt-1">WeCodeCoders • 2026</p>
+                </div>
+                <span class="font-mono-label text-[11px] font-bold underline mt-4">Open PDF ↗</span>
+            </a>
 
         </div>
     </section>
+
+    <!-- Section 05: Side Quests & Hobbies -->
+    <section id="hobbies" class="max-w-5xl mx-auto px-6 md:px-16 py-20 border-t border-stone-300/70">
+        <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono-label text-xs bg-purple-200 px-2 py-0.5 font-bold">05 // OFFLINE & CREATIVE</span>
+            <h2 class="text-2xl font-mono-label font-bold">Side Quests & Hobbies</h2>
+        </div>
+        <p class="text-lg text-stone-700 mb-10 max-w-2xl">
+            What I spend hours on when I close Jupyter Notebook and VS Code.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+            
+            <div class="relative bg-[#fffdf7] border-2 border-stone-900 rounded-lg p-6 shadow-[4px_4px_0px_#18181b] transform -rotate-1 hover:rotate-0 transition">
+                <div class="tape w-20 h-5 mx-auto -mt-8 mb-3"></div>
+                <span class="font-mono-label text-xs bg-pink-200 px-2 py-0.5 font-bold">CRAFTING</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Crocheting & Yarn Art</h3>
+                <p class="text-sm text-stone-700 leading-relaxed">
+                    Making handmade accessories from scratch—working through plushies and a crimson scarf inspired by <em>Attack on Titan</em>.
+                </p>
+            </div>
+
+            <div class="relative bg-[#fffdf7] border-2 border-stone-900 rounded-lg p-6 shadow-[4px_4px_0px_#18181b] transform rotate-1 hover:rotate-0 transition">
+                <div class="tape w-20 h-5 mx-auto -mt-8 mb-3"></div>
+                <span class="font-mono-label text-xs bg-emerald-200 px-2 py-0.5 font-bold">GAME DEV</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Godot & Pixel Platformers</h3>
+                <p class="text-sm text-stone-700 leading-relaxed">
+                    Building 2D TileMap levels, collision physics, and horror game atmospheres in Godot 4 and HTML5 Canvas.
+                </p>
+            </div>
+
+            <div class="relative bg-[#fffdf7] border-2 border-stone-900 rounded-lg p-6 shadow-[4px_4px_0px_#18181b] transform -rotate-1 hover:rotate-0 transition">
+                <div class="tape w-20 h-5 mx-auto -mt-8 mb-3"></div>
+                <span class="font-mono-label text-xs bg-sky-200 px-2 py-0.5 font-bold">HARDWARE</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Microcontroller Tinkering</h3>
+                <p class="text-sm text-stone-700 leading-relaxed">
+                    Soldering perfboards, wiring ultrasonic sensors, and programming pixel-art animations on 0.96" OLED screens.
+                </p>
+            </div>
+
+            <div class="relative bg-[#fffdf7] border-2 border-stone-900 rounded-lg p-6 shadow-[4px_4px_0px_#18181b] transform rotate-1 hover:rotate-0 transition">
+                <span class="font-mono-label text-xs bg-yellow-200 px-2 py-0.5 font-bold">VISUALS</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Poster & Zine Design</h3>
+                <p class="text-sm text-stone-700 leading-relaxed">
+                    Designing retro newspaper layouts, Y2K scrapbook graphics, and event posters for university tech clubs.
+                </p>
+            </div>
+
+            <div class="relative bg-[#fffdf7] border-2 border-stone-900 rounded-lg p-6 shadow-[4px_4px_0px_#18181b] transform -rotate-1 hover:rotate-0 transition">
+                <span class="font-mono-label text-xs bg-purple-200 px-2 py-0.5 font-bold">CINEMA</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Film Analysis & World Cultures</h3>
+                <p class="text-sm text-stone-700 leading-relaxed">
+                    Unpacking cinematography, narrative parallels, and cultural storytelling across films and anime.
+                </p>
+            </div>
+
+            <div class="relative bg-[#fffdf7] border-2 border-stone-900 rounded-lg p-6 shadow-[4px_4px_0px_#18181b] transform rotate-1 hover:rotate-0 transition">
+                <span class="font-mono-label text-xs bg-orange-200 px-2 py-0.5 font-bold">STRATEGY</span>
+                <h3 class="text-xl font-bold mt-3 mb-2">Beginner Chess</h3>
+                <p class="text-sm text-stone-700 leading-relaxed">
+                    Practicing opening principles, spotting tactics, and playing rapid games between study sessions.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Interactive Sticker Board -->
+        <div class="bg-white border-2 border-stone-900 rounded-lg p-6 shadow-[5px_5px_0px_#18181b]">
+            <div class="flex flex-wrap justify-between items-center gap-2 border-b border-stone-300 pb-3 mb-4">
+                <h3 class="font-mono-label text-sm font-bold uppercase">Pin a Note to the Scrapbook</h3>
+                <span class="font-mono-label text-xs text-stone-500">Leave a quick message</span>
+            </div>
+            <div id="notes-wall" class="flex flex-wrap gap-2.5 mb-5 min-h-[56px]">
+                <span class="font-hand text-xl bg-yellow-100 border border-yellow-300 px-3 py-1 rounded transform -rotate-2">1st place at amiphoria!</span>
+                <span class="font-hand text-xl bg-pink-100 border border-pink-300 px-3 py-1 rounded transform rotate-1">love the oled cat</span>
+                <span class="font-hand text-xl bg-emerald-100 border border-emerald-300 px-3 py-1 rounded transform -rotate-1">team resource ftw</span>
+            </div>
+            <form id="note-form" class="flex gap-2">
+                <input type="text" id="note-input" maxlength="40" placeholder="Write a sticker note..." class="flex-grow border border-stone-400 rounded px-3 py-2 text-sm focus:outline-none focus:border-stone-900">
+                <button type="submit" class="font-mono-label text-xs bg-stone-900 text-white px-5 py-2 rounded hover:bg-stone-700 cursor-pointer">
+                    Pin +
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="max-w-5xl mx-auto px-6 md:px-16 py-10 border-t border-stone-300/70 flex flex-col sm:flex-row justify-between items-center gap-4 font-mono-label text-xs text-stone-500">
-        <span>© 2026 Subhasree Majumder</span>
-        <span>Hand-coded with HTML & Tailwind CSS</span>
+        <span>© 2026 Subhasree Majumder • Kolkata, India</span>
+        <div class="flex gap-6">
+            <a href="https://github.com/s5zy77" target="_blank" class="hover:text-black underline">GitHub</a>
+            <a href="#top" class="hover:text-black underline">Back to top ↑</a>
+        </div>
     </footer>
+
+    <script>
+        // Interactive Matplotlib-styled Chart
+        const ctx = document.getElementById('mplChart').getContext('2d');
+        let currentChart;
+
+        const barConfig = {
+            type: 'bar',
+            data: {
+                labels: ['Pandas/EDA', 'Python/DSA', 'Web/Tailwind', 'Godot/Games', 'ESP32/IoT'],
+                datasets: [{
+                    label: 'Project Hours',
+                    data: [42, 48, 38, 26, 22],
+                    backgroundColor: ['#bae6fd', '#fde047', '#a7f3d0', '#f9a8d4', '#ddd6fe'],
+                    borderColor: '#18181b',
+                    borderWidth: 2,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#e7e5e4' },
+                        ticks: { font: { family: 'Space Mono', size: 11 } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Space Mono', size: 10 } }
+                    }
+                }
+            }
+        };
+
+        const lineConfig = {
+            type: 'line',
+            data: {
+                labels: ['Sem 1', 'Mar 26', 'Apr 26', 'Jul 26', 'Aug 26', 'Nov 26'],
+                datasets: [{
+                    label: 'Shipped Projects & Hackathons',
+                    data: [2, 4, 6, 8, 10, 13],
+                    borderColor: '#18181b',
+                    backgroundColor: 'rgba(249, 168, 212, 0.35)',
+                    borderWidth: 2.5,
+                    pointBackgroundColor: '#f472b6',
+                    pointRadius: 5,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#e7e5e4' },
+                        ticks: { font: { family: 'Space Mono', size: 11 } }
+                    },
+                    x: {
+                        grid: { color: '#f5f5f4' },
+                        ticks: { font: { family: 'Space Mono', size: 11 } }
+                    }
+                }
+            }
+        };
+
+        function updateChart(type) {
+            if (currentChart) currentChart.destroy();
+            const btnBar = document.getElementById('btn-bar');
+            const btnLine = document.getElementById('btn-line');
+            if (type === 'bar') {
+                currentChart = new Chart(ctx, barConfig);
+                btnBar.className = 'bg-stone-900 text-white px-2.5 py-1 rounded cursor-pointer';
+                btnLine.className = 'bg-stone-100 border border-stone-300 px-2.5 py-1 rounded hover:bg-stone-200 cursor-pointer';
+            } else {
+                currentChart = new Chart(ctx, lineConfig);
+                btnLine.className = 'bg-stone-900 text-white px-2.5 py-1 rounded cursor-pointer';
+                btnBar.className = 'bg-stone-100 border border-stone-300 px-2.5 py-1 rounded hover:bg-stone-200 cursor-pointer';
+            }
+        }
+
+        updateChart('bar');
+
+        // Interactive Sticker Note Wall
+        const noteColors = [
+            'bg-yellow-100 border-yellow-300 -rotate-2',
+            'bg-pink-100 border-pink-300 rotate-1',
+            'bg-emerald-100 border-emerald-300 -rotate-1',
+            'bg-sky-100 border-sky-300 rotate-2'
+        ];
+
+        document.getElementById('note-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = document.getElementById('note-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const wall = document.getElementById('notes-wall');
+            const badge = document.createElement('span');
+            const style = noteColors[Math.floor(Math.random() * noteColors.length)];
+            badge.className = `font-hand text-xl border px-3 py-1 rounded transform ${style}`;
+            badge.textContent = text;
+            wall.appendChild(badge);
+            input.value = '';
+        });
+    </script>
 
 </body>
 </html>
